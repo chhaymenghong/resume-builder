@@ -2,7 +2,7 @@ import { createContext, useContext } from 'react';
 
 export const initialContextData = {
     resumeData: {
-        authorName: 'James Bond 007',
+        authorName: 'James Bond 008',
         jobTitle: 'Licensed to Kill Professional Poker Player',
         phoneNum: '(007)-Royal-Flush',
         email: 'jamebond007@casino.royal',
