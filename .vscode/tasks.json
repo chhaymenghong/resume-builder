@@ -1,0 +1,29 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "start",
+			"label": "Start app",
+			"detail": "Start app",
+		},
+        {
+			"type": "npm",
+			"script": "build",
+			"label": "Build app",
+			"detail": "Build app",
+		},
+        {
+			"type": "npm",
+			"script": "test",
+			"label": "test app",
+			"detail": "test app",
+		},
+		{
+			"type": "npm",
+			"script": "format",
+			"label": "format app",
+			"detail": "format app",
+		},
+	]
+}
