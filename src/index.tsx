@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
       <NextUIProvider>
-        <main className="">
+        <main className="flex">
           <App />
         </main>
       </NextUIProvider>

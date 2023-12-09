@@ -24,7 +24,7 @@ export const ExperienceList: React.FC = () => {
                     <div contentEditable className="primary-color font-bold text-[17px]">
                         {experience.companyName}
                     </div>
-                    <div contentEditable className="experience-title primary-color font-bold">
+                    <div contentEditable className="second-color">
                         Job title
                         <span className="metadata">
                         {experience.startDate} - {experience.endDate}

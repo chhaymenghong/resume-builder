@@ -4,6 +4,10 @@
 
 @layer components {
     .primary-color {
-        @apply text-green-700;
+        color: #4b9325;
+    }
+
+    .second-color {
+        color: #644a39;
     }
 }
