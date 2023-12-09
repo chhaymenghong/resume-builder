@@ -5,8 +5,7 @@ import { FaTrash } from "react-icons/fa";
 interface IAchievementProp {
     achievement: {
         key: number,
-        description: string,
-        placeholder: boolean
+        description: string
     },
     onAchievementClick: () => void,
     onRemoveAchievement: () => void;
@@ -23,7 +22,7 @@ export const Achievement: React.FC<IAchievementProp> = ({achievement, onAchievem
                 setRemoveButtonVisibile(false)
             }}
             onClick={onAchievementClick}
-            className={`relative ${achievement.placeholder === true} ? 'invisible' : 'visible' `}
+            className={`relative`}
             key={achievement.key}>
 
             <Button onClick={onRemoveAchievement} className={`mr-1 absolute -top-2 -left-11 ${isRemoveButtonVisible ? '' : 'hidden'}`} color="danger"variant="faded" isIconOnly aria-label="Delete">

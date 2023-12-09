@@ -1,29 +1,26 @@
-import { useListItems } from "../../../hooks";
+import { useAppData, useListItems } from "../../../hooks";
 import { DecorateWithAddAction, DecorateWithRemoveAction } from "../../../components";
 import { SkillList } from "./skillList/SkillList";
 
-const placeholderData = {
-  key: 0,
-  categoryName: "Frontend",
-};
 export const SkillCategoryList: React.FC = () => {
+  const {resumeData} = useAppData();
   const {
     items: listOfSkillCategory,
     onRemoveItem: onRemoveSkillCategory,
     onAddItem: onAddSkillCategory,
-  } = useListItems([placeholderData]);
+  } = useListItems(resumeData.skillMetaData.skillCategories);
 
   const listOfSkillCategoryUI = listOfSkillCategory.map((skillCategory) => {
     return (
-      <div className="pb-3 dash-outline" key={skillCategory.key}>
+      <div className="pb-3 dash-outline mt-2" key={skillCategory.key}>
         <DecorateWithRemoveAction
           label="Remove Category"
           action={() => onRemoveSkillCategory(skillCategory)}
         >
-          <div contentEditable className="primary-color font-bold text-[17px]">
+          <div contentEditable className="primary-color font-bold text-[14px]">
             {skillCategory.categoryName}
           </div>
-          <SkillList />
+          <SkillList skillPlaceholder={resumeData.skillMetaData.skillPlaceholder} initialData={skillCategory.skills} />
         </DecorateWithRemoveAction>
       </div>
     );
@@ -32,7 +29,7 @@ export const SkillCategoryList: React.FC = () => {
   return (
     <DecorateWithAddAction
       label="Add Category"
-      action={() => onAddSkillCategory(placeholderData)}
+      action={() => onAddSkillCategory(resumeData.skillMetaData.skillCategoryPlaceholder)}
     >
       {listOfSkillCategoryUI}
     </DecorateWithAddAction>

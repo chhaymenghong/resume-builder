@@ -15,14 +15,14 @@ export const SideProject: React.FC<ISideProjectOptionProp> = ({sideProject, onRe
         label="Remove Side Project"
         action={() => onRemove()}
       >
-        <div className="experience dash-outline">
+        <div className="experience dash-outline mb-2">
           <div
             contentEditable
-            className="primary-color text-[17px] font-bold"
+            className="primary-color text-[14px] font-bold"
           >
             {sideProject.sideProjectName}
           </div>
-          <div contentEditable className="description mt-[3px]">
+          <div contentEditable className="description mt-[2px]">
             {sideProject.description}
           </div>
         </div>

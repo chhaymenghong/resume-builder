@@ -1,24 +1,15 @@
 import { DecorateWithAddAction } from "../../../components";
-import { useListItems } from "../../../hooks";
+import { useAppData, useListItems } from "../../../hooks";
 import { isEven, isOdd } from "../../../utils";
 import { SideProject } from "./sideProject/SideProject";
 
-const sampleData = {
-  key: 0,
-  sideProjectName: "Foreverbloomkh.com",
-  description: `Designed and built an entire e-commerce shopping platform
-    from scratch which includes a consumer-facing Single Page
-    Application (SPA), an inventory management system for
-    employees, and a serverless backend using Firebase Ecosystem, Angular, Stripe for accepting
-    payment, Twilio, Sendgrid, Discord and other technologies`,
-};
-
 export const SideProjectList: React.FC = () => {
+  const { resumeData } = useAppData();
   const {
     items: sideProjects,
     onRemoveItem: onRemoveSideProject,
     onAddItem: onAddSideProject,
-  } = useListItems([sampleData]);
+  } = useListItems(resumeData.sideProjectMetaData.sideProjects);
 
   const leftSideContentUI = sideProjects
     .filter(isEven)
@@ -43,7 +34,7 @@ export const SideProjectList: React.FC = () => {
   return (
     <DecorateWithAddAction
       label="Add Education"
-      action={() => onAddSideProject(sampleData)}>
+      action={() => onAddSideProject(resumeData.sideProjectMetaData.placeholder)}>
       <div className="side-project-content -mb-[10px]">
         <div className="left-container">{leftSideContentUI}</div>
         <div className="right-side-project-section">{rightSideContentUI}</div>

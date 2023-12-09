@@ -1,5 +1,5 @@
-
-html, body {
+html,
+body {
   margin: 0;
   font-family: 'Open Sans';
   font-size: 12px;
@@ -63,12 +63,22 @@ svg {
   display: inline;
 }
 
-.small {
-  font-size: 14px;
+.app-name {
+  animation: revealWord 2s forwards;
 }
 
-.backend, .testing {
-  margin-top: 10px;
+@keyframes revealWord {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.small {
+  font-size: 14px;
 }
 
 .skill-container {
@@ -103,6 +113,7 @@ i {
 li {
   margin-top: 2px;
 }
+
 .metadata {
   font-size: 12px;
 }

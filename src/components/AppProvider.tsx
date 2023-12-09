@@ -1,5 +1,6 @@
 import { PropsWithChildren } from "react";
-import { AppContext, initialContextData } from "../hooks/useAppData";
+import { AppContext } from "../hooks/useAppData";
+import { initialContextData } from "../constants";
 
 export const AppProvider: React.FC<PropsWithChildren> = ({children}) => {
     return (

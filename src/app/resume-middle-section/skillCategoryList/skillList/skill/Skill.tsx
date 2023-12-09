@@ -37,7 +37,7 @@ export const Skill: React.FC<ISkillProps> = ({
       >
         <FaTrash />
       </Button>
-      <span className="skill uppercase" contentEditable>{title}</span>
+      <span className="skill" contentEditable>{title}</span>
     </span>
   );
 };

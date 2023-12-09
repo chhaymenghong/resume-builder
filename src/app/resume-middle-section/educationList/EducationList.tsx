@@ -21,7 +21,7 @@ export const EducationList: React.FC = () => {
         return (
             <div contentEditable key={education.key} className="pb-1 dash-outline">
                 <DecorateWithRemoveAction label="Remove Education" action={() => onRemoveEducation(education)}>
-                    <div className="school primary-color font-bold text-[17px]">
+                    <div className="school primary-color font-bold text-[14px]">
                         {education.universityName}
                     </div>
                     <div className="degree">

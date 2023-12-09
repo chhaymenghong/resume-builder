@@ -1,48 +1,50 @@
-import { DecorateWithAddAction, DecorateWithRemoveAction } from "../../../components";
+import {
+  DecorateWithAddAction,
+  DecorateWithRemoveAction,
+} from "../../../components";
 import { JobAchievementList } from "./jobAchievementList/JobAchievementList";
-import { useListItems } from "../../../hooks";
+import { useAppData, useListItems } from "../../../hooks";
 
-const placeholderData = {
-    key: -1,
-    companyName: 'NASA, Jet Propulsion Laboratory',
-    jobTitle: 'Full Stack Developer',
-    startDate: '09/2017',
-    endDate: 'Present',
-    location: 'Pasadena, CA',
-    jobDescription: 'Worked in three teams over the years and contributed to the success of many ground system projects'
-};
 export const ExperienceList: React.FC = () => {
-    const {items: experiences, onRemoveItem: onRemoveExperience, onAddItem: onAddExperience} = useListItems([{
-        ...placeholderData,
-        key: 0
-    }]);
+  const { resumeData } = useAppData();
+  const {
+    items: experiences,
+    onRemoveItem: onRemoveExperience,
+    onAddItem: onAddExperience,
+  } = useListItems(resumeData.companyMetaData.initialData);
 
-    const listOfExperienceUI = experiences.map(experience => {
-        return (
-            <div className="p-1 dash-outline">
-                <DecorateWithRemoveAction label="Remove Experience" action={() => onRemoveExperience(experience)}>
-                    <div contentEditable className="primary-color font-bold text-[17px]">
-                        {experience.companyName}
-                    </div>
-                    <div contentEditable className="second-color">
-                        Job title
-                        <span className="metadata">
-                        {experience.startDate} - {experience.endDate}
-                            <span> {experience.location} </span>
-                        </span>
-                    </div>
-                    <div contentEditable className="description mb-2">
-                        {experience.jobDescription}
-                    </div>
-                    <JobAchievementList />
-                </DecorateWithRemoveAction>
-            </div> 
-        );
-    });
-
+  const listOfExperienceUI = experiences.map((experience) => {
     return (
-        <DecorateWithAddAction label="Add Experience" action={() => onAddExperience(placeholderData)}>
-            {listOfExperienceUI}
-        </DecorateWithAddAction>
+      <div className="p-1 dash-outline">
+        <DecorateWithRemoveAction
+          label="Remove Experience"
+          action={() => onRemoveExperience(experience)}
+        >
+          <div contentEditable className="primary-color font-bold text-[14px]">
+            {experience.companyName}
+          </div>
+          <div contentEditable className="second-color">
+            <span className="mr-1 font-bold">{experience.jobTitle}</span>
+            <span className="metadata">
+              {experience.startDate} - {experience.endDate}
+              <span> {experience.location} </span>
+            </span>
+          </div>
+          <div contentEditable className="description mb-2 mt-1">
+            {experience.jobDescription}
+          </div>
+          <JobAchievementList initialData={experience.achievements} />
+        </DecorateWithRemoveAction>
+      </div>
     );
-}
+  });
+
+  return (
+    <DecorateWithAddAction
+      label="Add Experience"
+      action={() => onAddExperience(resumeData.companyMetaData.placeholder)}
+    >
+      {listOfExperienceUI}
+    </DecorateWithAddAction>
+  );
+};
