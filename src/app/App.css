@@ -85,14 +85,9 @@ svg {
   margin-top: 10px;
 }
 
-.underline {
+/* .skill {
   border-bottom: 1px dashed #644a3957;
-  font-weight: 600;
-}
-
-.skill {
-  border-bottom: 1px dashed #644a3957;
-}
+} */
 
 .experience {
   padding: 2px;

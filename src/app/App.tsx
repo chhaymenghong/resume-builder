@@ -15,6 +15,7 @@ function App() {
     if (resumeElement) {
       var opt = {
         filename: "resume.pdf",
+        html2canvas: { scale: 4, dpi: 300 } 
       };
 
       // New Promise-based usage:
