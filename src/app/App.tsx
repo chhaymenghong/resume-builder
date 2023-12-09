@@ -7,6 +7,7 @@ import { ResumeTopSection } from "./resume-top-section/ResumeTopSection";
 import html2pdf from "html2pdf.js";
 import { Button } from "@nextui-org/react";
 import { FaDownload } from "react-icons/fa";
+import { Ads } from "./Ads";
 function App() {
   const resumeElement = useRef<HTMLDivElement>(null);
   const onDownload = useCallback(() => {
@@ -26,10 +27,18 @@ function App() {
         <ResumeMiddleSection />
         <ResumeBottomSection />
       </div>
-      <div className="grow flex justify-center">
-        <Button onClick={onDownload}  className="mt-10" color="primary" variant="bordered" endContent={<FaDownload />}>
+      <div className="grow flex flex-col items-center">
+        <Button
+          size="lg"
+          onClick={onDownload}
+          className="mt-10 mb-5 w-[200px]"
+          color="primary"
+          variant="bordered"
+          endContent={<FaDownload />}
+        >
           Download PDF
         </Button>
+        <Ads />
       </div>
     </AppProvider>
   );

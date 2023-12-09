@@ -4,12 +4,12 @@ import { useListItems } from "../../../hooks";
 
 const placeholderData = {
     key: -1,
-    companyName: 'Company Name',
-    jobTitle: 'Job Title',
-    startDate: 'MM/YYYY',
-    endDate: 'MM/YYYY',
-    location: 'City, State',
-    jobDescription: 'Add your job description here'
+    companyName: 'NASA, Jet Propulsion Laboratory',
+    jobTitle: 'Full Stack Developer',
+    startDate: '09/2017',
+    endDate: 'Present',
+    location: 'Pasadena, CA',
+    jobDescription: 'Worked in three teams over the years and contributed to the success of many ground system projects'
 };
 export const ExperienceList: React.FC = () => {
     const {items: experiences, onRemoveItem: onRemoveExperience, onAddItem: onAddExperience} = useListItems([{
