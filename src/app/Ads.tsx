@@ -1,11 +1,13 @@
+import { useEffect } from "react";
+const windowThis: any = window;
 export const Ads: React.FC = () => {
+  useEffect(() => {
+    try {
+      (windowThis.adsbygoogle = windowThis.adsbygoogle || []).push({});
+    } catch (e) {}
+  }, []);
   return (
     <div className="ad-container">
-      <script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3098248375801225"
-        crossOrigin="anonymous"
-      ></script>
       <ins
         className="adsbygoogle"
         style={{ display: "block" }}
@@ -14,7 +16,6 @@ export const Ads: React.FC = () => {
         data-ad-format="auto"
         data-full-width-responsive="true"
       ></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
   );
 };
