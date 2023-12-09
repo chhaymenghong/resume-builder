@@ -5,7 +5,7 @@ import { ResumeBottomSection } from "./resume-bottom-section/ResumeBottomSection
 import { ResumeMiddleSection } from "./resume-middle-section/ResumeMiddleSection";
 import { ResumeTopSection } from "./resume-top-section/ResumeTopSection";
 import html2pdf from "html2pdf.js";
-import { Button, Card, CardBody } from "@nextui-org/react";
+import { Button, Card, CardBody, Link } from "@nextui-org/react";
 import { FaDownload } from "react-icons/fa";
 import { Ads } from "./Ads";
 import pencil from '../pencil.png'; 
@@ -45,6 +45,9 @@ function App() {
         >
           Download PDF
         </Button>
+        <p>Made by   <Link isBlock showAnchorIcon href="https://github.com/chhaymenghong">
+        Menghong Chhay
+      </Link></p>
         <Ads />
       </div>
     </AppProvider>
